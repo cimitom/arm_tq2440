@@ -1,8 +1,8 @@
 #include <stdio.h>
-#include "../include/no.h"
+#include "../include/b.h"
 
 int main(int argc, char ** argv)
 {
-    printf("NO. is %d\n",a);
+    printf("%s\n",str);
     return 0;
 }
