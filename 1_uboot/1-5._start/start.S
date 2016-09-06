@@ -49,6 +49,7 @@ reset:
 		bl copy_ram
 		bl init_stack
 		bl clean_bss
+		bl light_led
 		
 		
 set_svc:
@@ -155,3 +156,13 @@ clean_loop:
 		bne clean_loop
 		mov pc, lr
 		
+#define pGPBCON 0x56000010
+#define pGPBDAT 0x56000014
+light_led:
+		ldr r0, =pGPBCON
+		ldr r1, =0x15400
+		str r1, [r0]
+		ldr r0, =pGPBDAT
+		ldr r1, =0x75f
+		str r1, [r0]
+		mov pc, lr
